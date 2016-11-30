@@ -15,7 +15,8 @@ public class Game {
 //TODO:
 	public static ArrayList<Player> inGame = new ArrayList<>();
 	
-	public static int maxplayers = 32;
+	public static int maxplayers;
+	public static int minplayers;
 	
 	public static boolean inpit = false;
 	public static boolean didPlayerCanJoin = true;
@@ -33,7 +34,6 @@ public class Game {
 		inInvenciblity = true;
 		Bukkit.broadcastMessage(message.prefix + "§4Das Spiel wurde gestartet!");
 		Bukkit.broadcastMessage(message.prefix + "Die Unverwundbarkeit hat begonnen!");
-		Bukkit.broadcastMessage(message.prefix + "§cDu bist nun für 2 Minuten Unverwundbar!");
 		WorldGeneration.teleportToSpawn();
 		didPlayerCanJoin = false;
 		isRunning = true;

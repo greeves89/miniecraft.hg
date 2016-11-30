@@ -66,6 +66,7 @@ public class EndGame {
 				} else {
 					Bukkit.getScheduler().cancelTask(countdown);
 					regenerate();
+					p.getInventory().clear();
 				}
 				Firework firework = p.getWorld().spawn(p.getLocation(), Firework.class);
 				

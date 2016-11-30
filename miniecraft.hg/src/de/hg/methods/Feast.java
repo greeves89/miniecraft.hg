@@ -112,6 +112,7 @@ public class Feast {
 		 ItemStack LavaBucket = new ItemStack(Material.LAVA_BUCKET);
 		 ItemStack Bucket = new ItemStack(Material.BUCKET);	 
 		 ItemStack XP = new ItemStack(Material.EXP_BOTTLE, rn.nextInt(16) + 1);
+		 ItemStack enchanter = new ItemStack(Material.ENCHANTMENT_TABLE);
 		 
 		 items.add(Bucket);
 		 items.add(LavaBucket);
@@ -127,6 +128,9 @@ public class Feast {
 		 items.add(DPants);
 		 items.add(iron);
 		 items.add(diamond);
+		 items.add(enchanter);
+		 items.add(steak);
+		 items.add(Bucket);
 	 }
 	 public static boolean checkIfLocationContainsFeast(Location l, int widht) {
 		 Location middle = loc;

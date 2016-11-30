@@ -20,7 +20,7 @@ public class mysql {
 		if (!isConnected()) {
 			try {
 				con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, username, password);
-				Bukkit.getConsoleSender().sendMessage("[MySQL] zur Datenbank verbunden!");
+				Bukkit.getConsoleSender().sendMessage("§2[MySQL] connected to database!");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -31,7 +31,7 @@ public class mysql {
 		if (isConnected()) {
 			try {
 				con.close();
-				Bukkit.getConsoleSender().sendMessage("[MySQL] Verbindung zur Datenbank getrennt!");
+				Bukkit.getConsoleSender().sendMessage("§4[MySQL] disconnected from database!");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

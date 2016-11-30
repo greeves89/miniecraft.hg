@@ -29,11 +29,15 @@ public class PlayerJoin implements Listener {
 		
 		if (Game.didPlayerCanJoin) {
 			
-			p.sendMessage(message.prefix + "du hast den Server betreten.");
-			e.setJoinMessage(message.prefix + "der Spieler " + p.getName() + " ist dem Spiel beigetreten.");
-			p.setGameMode(GameMode.ADVENTURE);
-			Game.inGame.add(p);
-			p.getInventory().setItem(4, KitSelector.getKitSelector());
+			if (Bukkit.getOnlinePlayers().size() < Game.maxplayers) {
+				p.sendMessage(message.prefix + "du hast den Server betreten.");
+				e.setJoinMessage(message.prefix + "der Spieler " + p.getName() + " ist dem Spiel beigetreten.");
+				p.setGameMode(GameMode.ADVENTURE);
+				Game.inGame.add(p);
+				p.getInventory().setItem(4, KitSelector.getKitSelector());
+			} else {
+				p.kickPlayer("§6The server in already full!");
+			}
 			
 		} else if (Game.didProCanJoin) {
 			
@@ -46,7 +50,7 @@ public class PlayerJoin implements Listener {
 			}
 			
 		} else {
-			p.kickPlayer("§cDas Spiel läuft bereits!");
+			p.kickPlayer("§6Game is already running!");
 		}
 	}
 }

@@ -11,7 +11,7 @@ public class ASyncChatManagment implements Listener {
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent e) {
 		Player p = e.getPlayer();
-		if (p.hasPermission("server.premium")) {
+		if (p.hasPermission("hg.color")) {
 			String msg = ChatColor.translateAlternateColorCodes('&', e.getMessage());
 			e.setFormat(p.getDisplayName() + "§7 >> §f" + msg);
 		} else {

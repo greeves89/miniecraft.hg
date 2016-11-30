@@ -10,14 +10,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class Farmer {
 	private static String name = "§e§lFarmer";
-	
-	private static boolean isFree = true;
-	public static int price = 150;
 
 	public static boolean checkBuy(Player p) {
-		if (isFree) {
-			return true;
-		} else if (p.hasPermission("kits.farmer")) {
+		if (p.hasPermission("hg.kit.farmer")) {
 			return true;
 		} else {
 			return false;

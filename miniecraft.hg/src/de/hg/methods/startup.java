@@ -1,14 +1,17 @@
 package de.hg.methods;
 
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
+import de.hg.fileconfiguration.BasicConfig;
 import de.hg.main.main;
 import de.hg.utils.message;
 
 public class startup {
 
 	static int countdown;
-	static int time = 40;
+	public static int time;
 	/**
 	 * The Number of Clients is the number how many people must be online to start the game
 	 * @param p - Player 
@@ -23,6 +26,10 @@ public class startup {
 			@Override
 			public void run() {
 				if (time != 0) {
+					for (Player all : Bukkit.getOnlinePlayers()) {
+						all.setFoodLevel(20);
+						all.setHealth(20);
+					}
 					Game.inStatup = true;
 					time--;
 					if (time  == 120) {
@@ -41,7 +48,8 @@ public class startup {
 					Bukkit.getScheduler().cancelTask(countdown);
 				} else {
 					Bukkit.broadcastMessage(message.prefix + "§8Es sind zu wenige Spieler auf dem Server! Es müssen mindestens §c" + clients + " §8Spieler auf dem Server sein!");
-					startup.time = 180;
+					YamlConfiguration cfg = BasicConfig.getConfiguration();
+					startup.time = cfg.getInt("preGame");
 				}
 			}
 		}, 0, 20);

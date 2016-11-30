@@ -12,7 +12,7 @@ import de.hg.worldgeneration.WorldGeneration;
 public class invencibility {
 
 	private static int countdown;
-	private static int high = 20;
+	public static int high;
 	
 	/**
 	 * High is the amount of seconds the countdown will be counting
@@ -26,6 +26,10 @@ public class invencibility {
 				@Override
 				public void run() {
 					if (high != 0) {
+						for (Player all : Bukkit.getOnlinePlayers()) {
+							all.setFoodLevel(20);
+							all.setHealth(20);
+						}
 						high--;
 						if (high == 60) {
 							Bukkit.broadcastMessage(getRemainingTime());
@@ -60,8 +64,6 @@ public class invencibility {
 	}
 	private static void endInvencibility() {
 		FeastAnnouncment.waitUntilAnnouncment();
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "motd remove 1");
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "motd add RUNNING");
 		Game.inInvenciblity = false;
 		Game.didProCanJoin = false;
 		Game.didPlayerCanPvP = true;

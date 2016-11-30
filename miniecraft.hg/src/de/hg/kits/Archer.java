@@ -13,13 +13,8 @@ public class Archer {
 
 	private static String name = "§e§lSchütze";
 	
-	private static boolean isFree = true;
-	public static int price = 150;
-	
 	public static boolean checkBuy(Player p) {
-		if (isFree) {
-			return true;
-		} else if (p.hasPermission("kits.archer")) {
+		if (p.hasPermission("hg.kit.archer")) {
 			return true;
 		} else {
 			return false;

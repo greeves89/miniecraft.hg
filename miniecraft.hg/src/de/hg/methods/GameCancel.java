@@ -11,7 +11,7 @@ import de.hg.utils.message;
 public class GameCancel {
 
 	private static int countdown;
-	private static int high = 2*60;
+	public static int high;
 	
 	public static void startCancleCountdown() {
 		countdown = Bukkit.getScheduler().scheduleSyncRepeatingTask(main.getInstance(), new Runnable() {
@@ -22,7 +22,7 @@ public class GameCancel {
 					if (high == 60) {
 						Bukkit.broadcastMessage(message.prefix + "§cDas Spiel wird in einer Minute abgebrochen!");
 					} else if (high <= 10) {
-						Bukkit.broadcastMessage(message.prefix + "§cDas Spiel wird in " + high + "Sekunden abgebrochen!");
+						Bukkit.broadcastMessage(message.prefix + "§cDas Spiel wird in " + high + " Sekunden abgebrochen!");
 					}
 					high--;
 				} else {

@@ -17,14 +17,9 @@ import de.hg.methods.Game;
 
 public class Fisherman implements Listener {
 	private static String name = "§c§lAngler";
-	
-	private static boolean isFree = false;
-	public static int price = 350;
 
 	public static boolean checkBuy(Player p) {
-		if (isFree) {
-			return true;
-		} else if (p.hasPermission("kits.fisherman")) {
+		if (p.hasPermission("kits.fisherman")) {
 			return true;
 		} else {
 			return false;

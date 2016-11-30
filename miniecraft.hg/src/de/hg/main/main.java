@@ -11,19 +11,21 @@ import de.hg.commands.heal;
 import de.hg.commands.hubCMD;
 import de.hg.commands.moneyCMD;
 import de.hg.commands.worldCMD;
+import de.hg.fileconfiguration.FileConfigManagment;
 import de.hg.kits.Fisherman;
 import de.hg.kits.KitSelector;
 import de.hg.kits.Soupmaster;
 import de.hg.kits.Stomper;
 import de.hg.kits.Switcher;
 import de.hg.listener.ASyncChatManagment;
-import de.hg.listener.MOTD;
 import de.hg.listener.PlayerBreak;
 import de.hg.listener.PlayerDeath;
 import de.hg.listener.PlayerHitOtherPlayers;
 import de.hg.listener.PlayerJoin;
 import de.hg.listener.PlayerLeave;
+import de.hg.listener.SoupHealing;
 import de.hg.methods.Feast;
+import de.hg.methods.Game;
 import de.hg.methods.startup;
 import de.hg.mysql.JoinRegistration;
 import de.hg.mysql.mysql;
@@ -42,18 +44,17 @@ public class main extends JavaPlugin {
 		registerCommands();
 		registerEvents();
 		
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "motd remove 1");
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "motd add JOIN");
+		FileConfigManagment.loadConfigs();
 		
 		Feast.loc = Feast.getLocation();
 		
 		if (WorldGeneration.didWorldExist()) {
-			startup.startGame(1);
 			WorldGeneration.setWorldBoarder();
 		} else {
 			WorldGeneration.createWorld();
-			startup.startGame(1);
 		}
+		
+		startup.startGame(Game.minplayers);
 		
 		startMySQL();
 		
@@ -89,7 +90,6 @@ public class main extends JavaPlugin {
 		pm.registerEvents(new PlayerBreak(), this);
 		pm.registerEvents(new Soupmaster(), this);
 		pm.registerEvents(new CompassTracker(), this);
-		pm.registerEvents(new MOTD(), this);
 		pm.registerEvents(new ScoreboardClass(), this);
 		pm.registerEvents(new JoinRegistration(), this);
 		pm.registerEvents(new Stomper(), this);
@@ -98,6 +98,7 @@ public class main extends JavaPlugin {
 		pm.registerEvents(new adminCMD(), this);
 		pm.registerEvents(new DisplaynameSetup(), this);
 		pm.registerEvents(new ASyncChatManagment(), this);
+		pm.registerEvents(new SoupHealing(), this);
 	}
 	private static void startMySQL() {
 		mysql.connect();

@@ -6,17 +6,22 @@ import java.io.IOException;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import de.hg.listener.SoupHealing;
 import de.hg.methods.Deathmatch;
 import de.hg.methods.FeastAnnouncment;
+import de.hg.methods.Game;
+import de.hg.methods.GameCancel;
+import de.hg.methods.invencibility;
+import de.hg.methods.startup;
 import de.hg.utils.message;
 
 public class BasicConfig {
-
+	
 	private static File getConfigFile() {
         return new File("plugins/HungerGames", "config.yml");
     }
 
-    private static YamlConfiguration getConfiguration() {
+    public static YamlConfiguration getConfiguration() {
         return YamlConfiguration.loadConfiguration(getConfigFile());
     }
 
@@ -45,6 +50,13 @@ public class BasicConfig {
     public static void readConfig() {
         YamlConfiguration cfg = getConfiguration();	
         
+        Game.minplayers = cfg.getInt("min_players");
+        Game.maxplayers = cfg.getInt("max_players");
+        SoupHealing.isEnabled = cfg.getBoolean("souphealing");
+        
+        invencibility.high = cfg.getInt("invincebility");
+        startup.time = cfg.getInt("preGame");
+        GameCancel.high = cfg.getInt("GameCancel");
         Deathmatch.high = cfg.getInt("Pit");
         FeastAnnouncment.high = cfg.getInt("FeastCountdown");
         FeastAnnouncment.waitingTime = cfg.getInt("FeastAnouncement");
