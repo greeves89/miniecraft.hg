@@ -86,9 +86,6 @@ public class EndGame {
 		
 	}
 	public static void regenerate() {
-		for (Player all : Bukkit.getOnlinePlayers()) {
-			Bukkit.dispatchCommand(all, "server lobby");
-		}
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mv delete " + WorldGeneration.worldname);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mv confirm");
 		Bukkit.getServer().reload();

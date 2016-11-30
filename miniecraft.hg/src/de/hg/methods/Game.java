@@ -29,8 +29,6 @@ public class Game {
 	public static boolean endgame = false;
 	
 	public static void startGame() {
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "motd remove 1");
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "motd add PREMIUM");
 		didProCanJoin = true;
 		inInvenciblity = true;
 		Bukkit.broadcastMessage(message.prefix + "§4Das Spiel wurde gestartet!");

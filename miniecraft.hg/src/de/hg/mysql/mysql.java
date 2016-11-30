@@ -9,11 +9,11 @@ import org.bukkit.Bukkit;
 
 public class mysql {
 
-	public static String host = "5.1.91.49";
-	public static String port = "3306";
-	public static String database = "BukkitServer";
-	public static String username = "minecraft";
-	public static String password = "321hallo1";
+	public static String host;
+	public static String port;
+	public static String database;
+	public static String username;
+	public static String password;
 	private static Connection con;
 	
 	public static void connect() {

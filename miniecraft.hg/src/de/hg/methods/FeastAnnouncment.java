@@ -8,10 +8,10 @@ import de.hg.main.main;
 public class FeastAnnouncment {
 
 	private static int time;
-	private static int high = 3*60;
+	public static int high;
 	
 	private static int waiting;
-	private static int waitingTime = 3*60;
+	public static int waitingTime;
 	
 	public static void waitUntilAnnouncment() {
 		
@@ -34,7 +34,6 @@ public class FeastAnnouncment {
 	public static void startFeastAnnouncment() {
 		
 		Feast.createFeast(Material.GRASS, 12);
-		Bukkit.broadcastMessage("§cDas Feast beginnt in 5 Minuten!");
 		Bukkit.broadcastMessage("§cFeast: X: " + Feast.loc.getBlockX() + " Y: " + Feast.loc.getBlockY() + " Z: " + Feast.loc.getBlockZ());
 		
 		time = Bukkit.getScheduler().scheduleSyncRepeatingTask(main.getInstance(), new Runnable() {
