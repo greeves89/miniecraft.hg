@@ -11,15 +11,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class Mage {
 	
 	private static String name = "§c§lMagier";
-	
-	private static boolean isFree = false;
-	public static int price = 350;
 
+	public static boolean isEnabled;
+	
 	public static boolean checkBuy(Player p) {
-		if (isFree) {
-			return true;
-		} else if (p.hasPermission("kits.magier")) {
-			return true;
+		if (isEnabled) {
+			if (p.hasPermission("hg.kit.mage")) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}

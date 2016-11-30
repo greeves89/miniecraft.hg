@@ -18,9 +18,15 @@ import de.hg.methods.Game;
 public class Fisherman implements Listener {
 	private static String name = "§c§lAngler";
 
+	public static boolean isEnabled;
+	
 	public static boolean checkBuy(Player p) {
-		if (p.hasPermission("kits.fisherman")) {
-			return true;
+		if (isEnabled) {
+			if (p.hasPermission("hg.kit.fisherman")) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}

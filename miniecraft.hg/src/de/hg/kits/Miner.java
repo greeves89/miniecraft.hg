@@ -12,15 +12,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class Miner {
 	
 	private static String name = "§e§lMiner";
-	
-	private static boolean isFree = false;
-	public static int price = 250;
 
+	public static boolean isEnabled;
+	
 	public static boolean checkBuy(Player p) {
-		if (isFree) {
-			return true;
-		} else if (p.hasPermission("kits.miner")) {
-			return true;
+		if (isEnabled) {
+			if (p.hasPermission("hg.kit.miner")) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}

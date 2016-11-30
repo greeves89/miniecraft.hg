@@ -10,10 +10,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class Farmer {
 	private static String name = "§e§lFarmer";
-
+	
+	public static boolean isEnabled;
+	
 	public static boolean checkBuy(Player p) {
-		if (p.hasPermission("hg.kit.farmer")) {
-			return true;
+		if (isEnabled) {
+			if (p.hasPermission("hg.kit.farmer")) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}

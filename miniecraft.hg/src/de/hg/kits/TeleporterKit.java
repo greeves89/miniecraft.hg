@@ -9,16 +9,18 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class TeleporterKit {
-private static String name = "§c§lTeleporter";
 	
-	private static boolean isFree = false;
-	public static int price = 200;
+	private static String name = "§c§lTeleporter";
 
+	public static boolean isEnabled;
+	
 	public static boolean checkBuy(Player p) {
-		if (isFree) {
-			return true;
-		} else if (p.hasPermission("kits.teleporter")) {
-			return true;
+		if (isEnabled) {
+			if (p.hasPermission("hg.kit.teleporter")) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}

@@ -13,9 +13,15 @@ public class Archer {
 
 	private static String name = "§e§lSchütze";
 	
+	public static boolean isEnabled;
+	
 	public static boolean checkBuy(Player p) {
-		if (p.hasPermission("hg.kit.archer")) {
-			return true;
+		if (isEnabled) {
+			if (p.hasPermission("hg.kit.archer")) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}

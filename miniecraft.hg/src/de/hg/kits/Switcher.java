@@ -21,15 +21,16 @@ import de.hg.kits.Kits.kits;
 public class Switcher implements Listener {
 	
 	private static String name = "§c§lSwitcher";
-	
-	private static boolean isFree = false;
-	public static int price = 350;
 
+	public static boolean isEnabled;
+	
 	public static boolean checkBuy(Player p) {
-		if (isFree) {
-			return true;
-		} else if (p.hasPermission("kits.switcher")) {
-			return true;
+		if (isEnabled) {
+			if (p.hasPermission("hg.kit.switcher")) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}

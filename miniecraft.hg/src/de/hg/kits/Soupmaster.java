@@ -17,14 +17,15 @@ public class Soupmaster implements Listener {
 
 	private static String name = "§e§cSoupmaster";
 	
-	private static boolean isFree = false;
-	public static int price = 300;
+	public static boolean isEnabled;
 	
 	public static boolean checkBuy(Player p) {
-		if (isFree) {
-			return true;
-		} else if (p.hasPermission("kits.soupmaster")) {
-			return true;
+		if (isEnabled) {
+			if (p.hasPermission("hg.kit.miner")) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}

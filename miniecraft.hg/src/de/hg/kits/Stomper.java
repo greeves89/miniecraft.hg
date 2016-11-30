@@ -19,15 +19,16 @@ import de.hg.methods.Game;
 
 public class Stomper implements Listener {
 	private static String name = "§c§lStomper";
-	
-	private static boolean isFree = false;
-	public static int price = 500;
 
+	public static boolean isEnabled;
+	
 	public static boolean checkBuy(Player p) {
-		if (isFree) {
-			return true;
-		} else if (p.hasPermission("kits.stomper")) {
-			return true;
+		if (isEnabled) {
+			if (p.hasPermission("hg.kit.stomper")) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}
