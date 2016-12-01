@@ -4,13 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import de.hg.commands.BugCommand;
-import de.hg.commands.adminCMD;
-import de.hg.commands.gamemodeCMD;
-import de.hg.commands.heal;
-import de.hg.commands.hubCMD;
-import de.hg.commands.moneyCMD;
-import de.hg.commands.worldCMD;
+import de.hg.commands.pingCMD;
+import de.hg.commands.startCMD;
 import de.hg.fileconfiguration.FileConfigManagment;
 import de.hg.kits.Fisherman;
 import de.hg.kits.Kangaroo;
@@ -71,13 +66,9 @@ public class main extends JavaPlugin {
 		
 	}
 	private void registerCommands() {
-		this.getCommand("money").setExecutor(new moneyCMD());
-		this.getCommand("world").setExecutor(new worldCMD());
-		this.getCommand("hub").setExecutor(new hubCMD());
-		this.getCommand("admin").setExecutor(new adminCMD());
-		this.getCommand("gamemode").setExecutor(new gamemodeCMD());
-		this.getCommand("heal").setExecutor(new heal());
-		this.getCommand("bug").setExecutor(new BugCommand());
+
+		this.getCommand("start").setExecutor(new startCMD());
+		this.getCommand("ping").setExecutor(new pingCMD());
 	}
 	private void registerEvents() {
 		PluginManager pm = Bukkit.getServer().getPluginManager();
@@ -96,7 +87,6 @@ public class main extends JavaPlugin {
 		pm.registerEvents(new Stomper(), this);
 		pm.registerEvents(new Switcher(), this);
 		pm.registerEvents(new Fisherman(), this);
-		pm.registerEvents(new adminCMD(), this);
 		pm.registerEvents(new DisplaynameSetup(), this);
 		pm.registerEvents(new ASyncChatManagment(), this);
 		pm.registerEvents(new SoupHealing(), this);

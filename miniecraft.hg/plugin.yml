@@ -3,17 +3,7 @@ author: Eric Dupont
 version: 1.0
 main: de.hg.main.main
 commands:
-     money:
-          description: Check how much money you got
-     world:
-          description: Just a test command
-     hub:
-          description: Join the lobby server
-     admin:
-          description: A Admin Command to join the adminmode
-     gamemode:
-          description: This is to change you gamemode
-     heal:
-          description: This Command is to heal yourself or other player
-     bug: 
-          description: A Command to report bugs!
+     start:
+          description: You can start the game directly
+     ping:
+          description: Check your ping to the server
