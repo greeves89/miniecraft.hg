@@ -8,9 +8,11 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import de.hg.kits.Archer;
 import de.hg.kits.Farmer;
 import de.hg.kits.Fisherman;
+import de.hg.kits.Grandpa;
 import de.hg.kits.Kangaroo;
 import de.hg.kits.Mage;
 import de.hg.kits.Miner;
+import de.hg.kits.Scout;
 import de.hg.kits.Soupmaster;
 import de.hg.kits.Stomper;
 import de.hg.kits.Switcher;
@@ -39,8 +41,10 @@ public class KitConfig {
         cfg.addDefault("Switcher", true);
         cfg.addDefault("Teleporter", true);
         cfg.addDefault("Kangaroo", true);
-        cfg.addDefault("KangaCooldown", 2);
-        
+        cfg.addDefault("KangaCooldown", 1);
+        cfg.addDefault("Grandpa", true);
+        cfg.addDefault("Scout", true);
+        cfg.addDefault("ScoutPotions", 3);
         
         try {
             cfg.save(getConfigFile());
@@ -53,7 +57,10 @@ public class KitConfig {
         YamlConfiguration cfg = getConfiguration();	
         
         Kangaroo.high = cfg.getInt("KangaCooldown");
+        Scout.bottleAmount = cfg.getInt("ScoutPotions");
         
+        Scout.isEnabled = cfg.getBoolean("Scout");
+        Grandpa.isEnabled = cfg.getBoolean("Grandpa");
         Kangaroo.isEnabled = cfg.getBoolean("Kangaroo");
         Stomper.isEnabled = cfg.getBoolean("Stomper");
         Archer.isEnabled = cfg.getBoolean("Archer");

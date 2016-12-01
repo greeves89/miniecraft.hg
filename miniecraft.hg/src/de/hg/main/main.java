@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import de.hg.commands.pingCMD;
 import de.hg.commands.startCMD;
+import de.hg.commands.stopCMD;
 import de.hg.fileconfiguration.FileConfigManagment;
 import de.hg.kits.Fisherman;
 import de.hg.kits.Kangaroo;
@@ -69,6 +70,7 @@ public class main extends JavaPlugin {
 
 		this.getCommand("start").setExecutor(new startCMD());
 		this.getCommand("ping").setExecutor(new pingCMD());
+		this.getCommand("stop").setExecutor(new stopCMD());
 	}
 	private void registerEvents() {
 		PluginManager pm = Bukkit.getServer().getPluginManager();
