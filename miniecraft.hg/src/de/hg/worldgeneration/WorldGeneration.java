@@ -15,6 +15,7 @@ import de.hg.methods.Game;
 public class WorldGeneration implements Listener {
 
 	public static String worldname = "hg_world";
+	public static int bordersize = 500;
 	
 	public static boolean didWorldExist() {
 		World world = Bukkit.getWorld(worldname);
@@ -56,7 +57,7 @@ public class WorldGeneration implements Listener {
 		World world = Bukkit.getWorld(worldname);
 		
 		WorldBorder boarder = world.getWorldBorder();
-		boarder.setSize(500.1);
+		boarder.setSize(bordersize);
 		boarder.setWarningDistance(5);
 		
 	}

@@ -16,6 +16,7 @@ import de.hg.methods.invencibility;
 import de.hg.methods.startup;
 import de.hg.utils.CompassTracker;
 import de.hg.utils.message;
+import de.hg.worldgeneration.WorldGeneration;
 
 public class BasicConfig {
 	
@@ -37,6 +38,7 @@ public class BasicConfig {
         cfg.addDefault("souphealing", false);
         cfg.addDefault("CompassRadius", 250);
         cfg.addDefault("FeastItemAmount", 25);
+        cfg.addDefault("WorldBorderWidth", 250);
         
         cfg.addDefault("preGame", 120);
         cfg.addDefault("invincebility", 120);
@@ -60,6 +62,7 @@ public class BasicConfig {
         CompassTracker.radius = cfg.getInt("CompassRadius");
         Feast.itemAmount = cfg.getInt("FeastItemAmount");
         
+        WorldGeneration.bordersize = cfg.getInt("WorldBorderWidth") * 2;
         invencibility.high = cfg.getInt("invincebility");
         startup.time = cfg.getInt("preGame");
         GameCancel.high = cfg.getInt("GameCancel");
