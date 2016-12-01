@@ -104,13 +104,19 @@ public class KitSelector implements Listener {
 								} else {
 									p.sendMessage(message.kitDontOwn);
 								}
+							} else if (current.equals(Kangaroo.getKitItem(p))) {
+								if (Kangaroo.checkBuy(p)) {
+									kitHash.put(p, kits.KANGA);
+								} else {
+									p.sendMessage(message.kitDontOwn);
+								}
 							}
+	 						p.sendMessage(message.prefix + "Du hast ein Kit gewählt!");
 						} else {
 							kitHash.remove(p);
 							p.sendMessage("§cWähle dein Kit erneut!");
 						}
 						p.playSound(p.getLocation(), Sound.CHEST_CLOSE, 1, 10);
-						p.sendMessage(message.prefix + "Du hast ein Kit gewählt!");
 						p.getOpenInventory().close();
 						e.setCancelled(true);
 					}
@@ -137,6 +143,7 @@ public class KitSelector implements Listener {
 		selector.setItem(15, Fisherman.getKitItem(p));
 		selector.setItem(16, Mage.getKitItem(p));
 		selector.setItem(17, Switcher.getKitItem(p));
+		selector.setItem(18, Kangaroo.getKitItem(p));
 		
 		for (int i = 36; i < 45; i++) {
 			selector.setItem(i, glass);
@@ -162,10 +169,13 @@ public class KitSelector implements Listener {
 					Mage.setKit(all);
 				} else if (kitHash.get(all) == kits.SWITCHER) {
 					Switcher.setKit(all);
-				} else {
-					ItemStack sword = new ItemStack(Material.WOOD_SWORD);
-					all.getInventory().addItem(sword);
-				}
+				} else if (kitHash.get(all) == kits.KANGA) {
+					Kangaroo.setKit(all);
+				} 
+			} else {
+				ItemStack sword = new ItemStack(Material.WOOD_SWORD);
+				sword.setDurability((short) 55);
+				all.getInventory().addItem(sword);
 			}
 		}
 	}
