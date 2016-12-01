@@ -8,9 +8,11 @@ import org.bukkit.inventory.ItemStack;
 
 public class Rewards {
 
+	//not used now
+	
 	private static ArrayList<ItemStack> rewards = new ArrayList<>();
 	
-	public static ItemStack getReward() {
+	private static ItemStack getReward() {
 		addRewards();
 		Random rn = new Random();
 		int index = rn.nextInt(rewards.size());

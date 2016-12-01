@@ -22,6 +22,7 @@ public class Feast {
 	
 	public static Location loc;
 	 
+	public static int itemAmount = 0;
 	 public static Location getLocation() {
 	  int x = 0;
 	  int y = 0;
@@ -87,7 +88,7 @@ public class Feast {
 		 }
 		 Random rn = new Random();
 		 
-		 for (int i = 0; i < 22; i++) {
+		 for (int i = 0; i < itemAmount; i++) {
 			 Location spawning = FeastLocation.get(rn.nextInt(FeastLocation.size() + 1));
 			 world.dropItemNaturally(spawning, getItem());
 		 }

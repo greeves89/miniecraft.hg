@@ -8,11 +8,13 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import de.hg.listener.SoupHealing;
 import de.hg.methods.Deathmatch;
+import de.hg.methods.Feast;
 import de.hg.methods.FeastAnnouncment;
 import de.hg.methods.Game;
 import de.hg.methods.GameCancel;
 import de.hg.methods.invencibility;
 import de.hg.methods.startup;
+import de.hg.utils.CompassTracker;
 import de.hg.utils.message;
 
 public class BasicConfig {
@@ -33,6 +35,8 @@ public class BasicConfig {
         cfg.addDefault("max_players", 24);
         cfg.addDefault("prefix", "&8[&6Hunger&2Games&8] ");
         cfg.addDefault("souphealing", false);
+        cfg.addDefault("CompassRadius", 250);
+        cfg.addDefault("FeastItemAmount", 25);
         
         cfg.addDefault("preGame", 120);
         cfg.addDefault("invincebility", 120);
@@ -53,6 +57,8 @@ public class BasicConfig {
         Game.minplayers = cfg.getInt("min_players");
         Game.maxplayers = cfg.getInt("max_players");
         SoupHealing.isEnabled = cfg.getBoolean("souphealing");
+        CompassTracker.radius = cfg.getInt("CompassRadius");
+        Feast.itemAmount = cfg.getInt("FeastItemAmount");
         
         invencibility.high = cfg.getInt("invincebility");
         startup.time = cfg.getInt("preGame");

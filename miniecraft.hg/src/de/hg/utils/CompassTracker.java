@@ -13,6 +13,8 @@ import de.hg.methods.Game;
 
 public class CompassTracker implements Listener {
 
+	public static int radius = 0;
+	
 	@EventHandler
 	public void onInteract(PlayerInteractEvent e) {
 		Player p = e.getPlayer();
@@ -33,7 +35,7 @@ public class CompassTracker implements Listener {
 	public static Player getNearestPlayer(Player p) {
 		double distance = Double.MAX_VALUE;
 		Player target = null;
-		for (Entity entity : p.getNearbyEntities(300, 200, 300)) {
+		for (Entity entity : p.getNearbyEntities(radius, radius, radius)) {
 			if (entity instanceof Player) {
 				double dis = p.getLocation().distance(entity.getLocation());
 				

@@ -13,6 +13,7 @@ import de.hg.commands.moneyCMD;
 import de.hg.commands.worldCMD;
 import de.hg.fileconfiguration.FileConfigManagment;
 import de.hg.kits.Fisherman;
+import de.hg.kits.Kangaroo;
 import de.hg.kits.KitSelector;
 import de.hg.kits.Soupmaster;
 import de.hg.kits.Stomper;
@@ -99,6 +100,7 @@ public class main extends JavaPlugin {
 		pm.registerEvents(new DisplaynameSetup(), this);
 		pm.registerEvents(new ASyncChatManagment(), this);
 		pm.registerEvents(new SoupHealing(), this);
+		pm.registerEvents(new Kangaroo(), this);
 	}
 	private static void startMySQL() {
 		mysql.connect();
