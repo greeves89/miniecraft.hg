@@ -11,7 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class Archer {
 
-	private static String name = "§e§lSchütze";
+	private static String name = "§e§lArcher";
 	
 	public static boolean isEnabled;
 	
@@ -29,13 +29,13 @@ public class Archer {
 	
 	public static List<String> getDescription(Player p) {
 		List<String> lore = new ArrayList<>();
-		lore.add("§8Schieße deine Gegner mit einem Bogen ab.");
+		lore.add("§8Shoot your enemies down!");
 		lore.add("");
 		lore.add("");
 		if (checkBuy(p)) {
-			lore.add("§2gekauft");
+			lore.add("§2owned");
 		} else {
-			lore.add("§cnicht gekauft!");
+			lore.add("§cDISABLED");
 		}
 		return lore;
 	}

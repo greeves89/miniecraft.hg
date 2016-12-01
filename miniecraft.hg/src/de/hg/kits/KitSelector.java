@@ -122,11 +122,23 @@ public class KitSelector implements Listener {
 								} else {
 									p.sendMessage(message.kitDontOwn);
 								}
+							} else if (current.equals(Pyro.getKitItem(p))) {
+								if (Pyro.checkBuy(p)) {
+									kitHash.put(p, kits.PYRO);
+								} else {
+									p.sendMessage(message.kitDontOwn);
+								}
+							} else if (current.equals(Lumberjack.getKitItem(p))) {
+								if (Lumberjack.checkBuy(p)) {
+									kitHash.put(p, kits.LUMBERJACK);
+								} else {
+									p.sendMessage(message.kitDontOwn);
+								}
 							}
-	 						p.sendMessage(message.prefix + "Du hast ein Kit gewählt!");
+	 						p.sendMessage(message.prefix + "You choosed a kit!");
 						} else {
 							kitHash.remove(p);
-							p.sendMessage("§cWähle dein Kit erneut!");
+							p.sendMessage("§cChoose your kit again!");
 						}
 						p.playSound(p.getLocation(), Sound.CHEST_CLOSE, 1, 10);
 						p.getOpenInventory().close();
@@ -158,6 +170,8 @@ public class KitSelector implements Listener {
 		selector.setItem(18, Kangaroo.getKitItem(p));
 		selector.setItem(19, Grandpa.getKitItem(p));
 		selector.setItem(20, Scout.getKitItem(p));
+		selector.setItem(21, Pyro.getKitItem(p));
+		selector.setItem(22, Lumberjack.getKitItem(p));
 		
 		for (int i = 36; i < 45; i++) {
 			selector.setItem(i, glass);
@@ -189,10 +203,14 @@ public class KitSelector implements Listener {
 					Grandpa.setKit(all);
 				} else if (kitHash.get(all) == kits.SCOUT) {
 					Scout.setKit(all);
+				} else if (kitHash.get(all) == kits.PYRO) {
+					Pyro.setKit(all);
+				} else if (kitHash.get(all) == kits.LUMBERJACK) {
+					Lumberjack.setKit(all);
 				}
 			} else {
 				ItemStack sword = new ItemStack(Material.WOOD_SWORD);
-				sword.setDurability((short) 55);
+				sword.setDurability((short) 50);
 				all.getInventory().addItem(sword);
 			}
 		}

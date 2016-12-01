@@ -15,6 +15,7 @@ import de.hg.methods.GameCancel;
 import de.hg.methods.invencibility;
 import de.hg.methods.startup;
 import de.hg.utils.CompassTracker;
+import de.hg.utils.ScoreboardClass;
 import de.hg.utils.message;
 import de.hg.worldgeneration.WorldGeneration;
 
@@ -39,6 +40,7 @@ public class BasicConfig {
         cfg.addDefault("CompassRadius", 250);
         cfg.addDefault("FeastItemAmount", 25);
         cfg.addDefault("WorldBorderWidth", 250);
+        cfg.addDefault("ServerWebsite", "myserver.eu");
         
         cfg.addDefault("preGame", 120);
         cfg.addDefault("invincebility", 120);
@@ -61,6 +63,7 @@ public class BasicConfig {
         SoupHealing.isEnabled = cfg.getBoolean("souphealing");
         CompassTracker.radius = cfg.getInt("CompassRadius");
         Feast.itemAmount = cfg.getInt("FeastItemAmount");
+        ScoreboardClass.website = cfg.getString("ServerWebsite");
         
         WorldGeneration.bordersize = cfg.getInt("WorldBorderWidth") * 2;
         invencibility.high = cfg.getInt("invincebility");

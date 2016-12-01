@@ -32,8 +32,8 @@ public class Game {
 	public static void startGame() {
 		didProCanJoin = true;
 		inInvenciblity = true;
-		Bukkit.broadcastMessage(message.prefix + "§4Das Spiel wurde gestartet!");
-		Bukkit.broadcastMessage(message.prefix + "Die Unverwundbarkeit hat begonnen!");
+		Bukkit.broadcastMessage(message.prefix + "§4The Game was started!");
+		Bukkit.broadcastMessage(message.prefix + "The invincebility have started!");
 		WorldGeneration.teleportToSpawn();
 		didPlayerCanJoin = false;
 		isRunning = true;

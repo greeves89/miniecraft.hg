@@ -10,8 +10,10 @@ import de.hg.kits.Farmer;
 import de.hg.kits.Fisherman;
 import de.hg.kits.Grandpa;
 import de.hg.kits.Kangaroo;
+import de.hg.kits.Lumberjack;
 import de.hg.kits.Mage;
 import de.hg.kits.Miner;
+import de.hg.kits.Pyro;
 import de.hg.kits.Scout;
 import de.hg.kits.Soupmaster;
 import de.hg.kits.Stomper;
@@ -45,6 +47,8 @@ public class KitConfig {
         cfg.addDefault("Grandpa", true);
         cfg.addDefault("Scout", true);
         cfg.addDefault("ScoutPotions", 3);
+        cfg.addDefault("Pyro", true);
+        cfg.addDefault("Lumberjack", true);
         
         try {
             cfg.save(getConfigFile());
@@ -59,6 +63,8 @@ public class KitConfig {
         Kangaroo.high = cfg.getInt("KangaCooldown");
         Scout.bottleAmount = cfg.getInt("ScoutPotions");
         
+        Pyro.isEnabled = cfg.getBoolean("Pyro");
+        Lumberjack.isEnabled = cfg.getBoolean("Lumberjack");
         Scout.isEnabled = cfg.getBoolean("Scout");
         Grandpa.isEnabled = cfg.getBoolean("Grandpa");
         Kangaroo.isEnabled = cfg.getBoolean("Kangaroo");

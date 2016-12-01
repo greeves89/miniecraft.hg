@@ -28,9 +28,9 @@ public class Deathmatch {
 			public void run() {
 				if (high != 0) {
 					if (high == 60) {
-						Bukkit.broadcastMessage(message.prefix + "§cdas Deathmatch startet in einer Minute!");
+						Bukkit.broadcastMessage(message.prefix + "§cthe deathmatch start's in one minute!");
 					} else if (high <= 10) {
-						Bukkit.broadcastMessage(message.prefix + "§cDas Deathmatch beginnt in " + high + " Sekunden!");
+						Bukkit.broadcastMessage(message.prefix + "§6The deathmatch start's in §c" + high + "§6 seconds!");
 					}
 					high--;
 				} else {

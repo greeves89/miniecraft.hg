@@ -20,33 +20,27 @@ public class PlayerDeath implements Listener {
 			if (killer != null) {
 				if (Bukkit.getOnlinePlayers().size() == 3 || Bukkit.getOnlinePlayers().size() == 2) {
 					double hearts = killer.getHealth() / 2;
-					p.kickPlayer("§bDu bist leider ausgeschieden!\n"
-							+ "§bgetötet von: §c" + killer.getName() + "\n"
-									+ "§bAnzahl der Herzen: §c" + hearts + "\n"
-											+ "Du hast ein Geschenk für den belegten Platz bekommen!");
+					p.kickPlayer("§bYou have been killed!\n"
+							+ "§bkilled by: §c" + killer.getName() + "\n"
+									+ "§bHeart's §c" + hearts + "\n");
 				} else {
 					double hearts = killer.getHealth() / 2;
-					p.kickPlayer("§bDu bist leider ausgeschieden!\n"
-							+ "§bgetötet von: §c" + killer.getName() + "\n"
-									+ "§bAnzahl der Herzen: §c" + hearts + "\n"
-											+ "Du kannst nun wieder ganz normal auf den Lobbyserver verbinden!");
+					p.kickPlayer("§bYou have been killed!\n"
+							+ "§bkilled by: §c" + killer.getName() + "\n"
+									+ "§bHeart's §c" + hearts + "\n");
 				}
 			} else {
 				if (Bukkit.getOnlinePlayers().size() == 3 || Bukkit.getOnlinePlayers().size() == 2) {
-					p.kickPlayer("§bDu bist leider ausgeschieden!\n"
-							+ "§eDu kannst nun wieder ganz normal auf den Lobbyserver verbinden!\n"
-							+ "§eDu hast ein Geschenk für den belegten Platz bekommen!");
+					p.kickPlayer("§bYou have been eliminated");
 				} else {
-					p.kickPlayer("§bDu bist leider ausgeschieden!\n"
-							+ "§eDu kannst nun wieder ganz normal auf den Lobbyserver verbinden!");
+					p.kickPlayer("§bYou have been eliminated");
 				}
 			}
 		}
-		Bukkit.dispatchCommand(p, "server lobby");
 		statsMySQL.updateDeaths(p.getUniqueId(), true, 1);
 		if (killer instanceof Player) {
-			ScoreboardClass.updateScoreboard(killer);
 			statsMySQL.updateKills(killer.getUniqueId(), true, 1);
+			ScoreboardClass.updateScoreboard(killer);
 		}
 		ScoreboardClass.updateScoreboard(p);
 	}

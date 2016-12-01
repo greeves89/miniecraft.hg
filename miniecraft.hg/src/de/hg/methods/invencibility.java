@@ -49,7 +49,7 @@ public class invencibility {
 						for (Player all : Bukkit.getOnlinePlayers()) {
 							all.playSound(all.getLocation(), Sound.ENDERDRAGON_HIT, 1, 10);
 						}
-						Bukkit.broadcastMessage(message.prefix + "§8Du bist nun verwundbar!");
+						Bukkit.broadcastMessage(message.prefix + "§8You are no longer invicible!!");
 						high = 120;
 						Game.didProCanJoin = false;
 						endInvencibility();
@@ -60,7 +60,7 @@ public class invencibility {
 		}
 	}
 	private static String getRemainingTime() {
-		return message.prefix + "§8in §c" + high + "§8 Sekunden endet die Unverwundbarkeit!";
+		return message.prefix + "§8The inviciblity will end in §c" + high + "§8 seconds!";
 	}
 	private static void endInvencibility() {
 		FeastAnnouncment.waitUntilAnnouncment();

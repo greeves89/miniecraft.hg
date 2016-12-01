@@ -20,9 +20,9 @@ public class GameCancel {
 			public void run() {
 				if (high != 0) {
 					if (high == 60) {
-						Bukkit.broadcastMessage(message.prefix + "§cDas Spiel wird in einer Minute abgebrochen!");
+						Bukkit.broadcastMessage(message.prefix + "§cThe Game will be canceled in 1 minute!");
 					} else if (high <= 10) {
-						Bukkit.broadcastMessage(message.prefix + "§cDas Spiel wird in " + high + " Sekunden abgebrochen!");
+						Bukkit.broadcastMessage(message.prefix + "§cThe Game will be canceled " + high + " seconds!");
 					}
 					high--;
 				} else {
@@ -33,7 +33,7 @@ public class GameCancel {
 						if (current.getUniqueId().equals(winner.getUniqueId())) {
 							EndGame.setPlayerWinner(winner);
 						} else {
-							current.kickPlayer("§cEs wurde ein zufälliger Winner gesucht.");
+							current.kickPlayer("§cA random winner have been choosen.");
 						}
 					}
 					Bukkit.getScheduler().cancelTask(countdown);

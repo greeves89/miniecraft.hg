@@ -16,7 +16,7 @@ import de.hg.kits.Kits.kits;
 import de.hg.methods.Game;
 
 public class Fisherman implements Listener {
-	private static String name = "§c§lAngler";
+	private static String name = "§c§lFisherman";
 
 	public static boolean isEnabled;
 	
@@ -34,13 +34,13 @@ public class Fisherman implements Listener {
 
  	public static List<String> getDescription(Player p) {
 		List<String> lore = new ArrayList<>();
-		lore.add("§cDu kannst Spieler, Tiere und Monster, ");
-		lore.add("§czu dich ziehen!");
+		lore.add("§eMove every entity to you!");
+		lore.add("§cNotice: §ealso good to get some fish!");
 		lore.add("");
 		if (checkBuy(p)) {
-			lore.add("§2gekauft");
+			lore.add("§2owned");
 		} else {
-			lore.add("§cnicht gekauft");
+			lore.add("§cDISABLED");
 		}
 		return lore;
 	}

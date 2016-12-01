@@ -52,7 +52,7 @@ public class EndGame {
 		 }
 		statsMySQL.updateWin(p.getUniqueId(), true, 1);
 		p.teleport(teleportLocation);
-		p.sendMessage("§2Du hast das Spiel gewonnen!");
+		p.sendMessage("§2You have win the game!");
 		p.playSound(p.getLocation(), Sound.ENDERDRAGON_DEATH, 1, 10);
 	}
 	private static int countdown;
@@ -79,7 +79,7 @@ public class EndGame {
 				
 				FireworkMeta meta = firework.getFireworkMeta();
 				meta.addEffect(effect);
-				meta.setPower(1);
+				meta.setPower(2);
 				firework.setFireworkMeta(meta);
 				
 			}
@@ -87,6 +87,9 @@ public class EndGame {
 		
 	}
 	public static void regenerate() {
+		for (Player all : Bukkit.getOnlinePlayers()) {
+			all.kickPlayer("§cThe Server is restarting! Join again in a few seconds!");
+		}
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mv delete " + WorldGeneration.worldname);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mv confirm");
 		Bukkit.getServer().reload();

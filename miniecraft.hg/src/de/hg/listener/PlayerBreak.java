@@ -25,7 +25,7 @@ public class PlayerBreak implements Listener {
 	@EventHandler
 	public void onBreakInInvencibility(BlockBreakEvent e) {
 		if (Game.inStatup) {
-			e.getPlayer().sendMessage("§cDu kannst während der Startphase nichts abbauen!");
+			e.getPlayer().sendMessage("§cHey, you can't break/place blocks in invincebility!");
 			e.setCancelled(true);
 		}
 		if(Game.isFeast) {

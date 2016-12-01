@@ -23,10 +23,10 @@ public class CompassTracker implements Listener {
 				Player target = getNearestPlayer(p);
 				if (target != null) {
 					int dis = (int) p.getLocation().distance(target.getLocation());
-					p.sendMessage(message.prefix + "§2Dein Compass zeigt nun auf §c" + target.getName() + "! §2Er ist noch §c" + dis + " Blöcke §2entfernt!");
+					p.sendMessage(message.prefix + "§2Compass is pointing on §c" + target.getName() + "! §2He is §c" + dis + " blocks §2away!");
 					p.setCompassTarget(target.getLocation());
 				} else {
-					p.sendMessage(message.prefix + "§cEs sind keine Spieler in deiner Nähe!");
+					p.sendMessage(message.prefix + "§cThere are no players to track!");
 				}
 			}
 		}

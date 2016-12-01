@@ -7,7 +7,7 @@ public class Admin {
 
 	public static void sendMessage(String msg) {
 		for (Player all : Bukkit.getOnlinePlayers()) {
-			if (all.hasPermission("server.admin")) {
+			if (all.hasPermission("hg.admin.messenger")) {
 				all.sendMessage("§4[Admin-Messager] " + msg);
 			}
 		}

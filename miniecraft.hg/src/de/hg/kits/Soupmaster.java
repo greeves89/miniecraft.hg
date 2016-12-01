@@ -21,7 +21,7 @@ public class Soupmaster implements Listener {
 	
 	public static boolean checkBuy(Player p) {
 		if (isEnabled) {
-			if (p.hasPermission("hg.kit.miner")) {
+			if (p.hasPermission("hg.kit.soupmaster")) {
 				return true;
 			} else {
 				return false;
@@ -33,13 +33,13 @@ public class Soupmaster implements Listener {
 	
 	public static List<String> getDescription(Player p) {
 		List<String> lore = new ArrayList<>();
-		lore.add("§8Suppen heilen dir 2 Herzen!");
-		lore.add("§8Du bekommst 5 Suppen!");
+		lore.add("§2You will get some soups!");
+		lore.add("§cSoups will heal 2 of your hearts");
 		lore.add("");
 		if (checkBuy(p)) {
-			lore.add("§2gekauft");
+			lore.add("§2owned");
 		} else {
-			lore.add("§cnicht gekauft");
+			lore.add("§cDISABLED");
 		}
 		return lore;
 	}

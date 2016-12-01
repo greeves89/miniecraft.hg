@@ -10,7 +10,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class Mage {
 	
-	private static String name = "§c§lMagier";
+	private static String name = "§c§lMage";
 
 	public static boolean isEnabled;
 	
@@ -28,13 +28,13 @@ public class Mage {
 
  	public static List<String> getDescription(Player p) {
 		List<String> lore = new ArrayList<>();
-		lore.add("§cDu bekommst einen Verzauberungstisch und 32 Lapislazuli");
+		lore.add("§cEnchant your weapons and make their stronger!");
 		lore.add("");
 		lore.add("");
 		if (checkBuy(p)) {
-			lore.add("§2gekauft");
+			lore.add("§2owned");
 		} else {
-			lore.add("§cnicht gekauft");
+			lore.add("§cDISABLED");
 		}
 		return lore;
 	}

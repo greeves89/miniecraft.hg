@@ -46,7 +46,7 @@ public class PlayerHitOtherPlayers implements Listener {
 		}
 	}
 	@EventHandler
-	public void onItemtake(PlayerPickupItemEvent e) {
+	public void onItemTake(PlayerPickupItemEvent e) {
 		if (Game.inStatup) {
 			e.setCancelled(true);
 		}

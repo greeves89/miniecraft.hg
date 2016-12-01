@@ -36,13 +36,13 @@ public class Stomper implements Listener {
 
  	public static List<String> getDescription(Player p) {
 		List<String> lore = new ArrayList<>();
-		lore.add("§cSpringe auf deinen Gegner,");
-		lore.add("§cdieser wird einen Teil von deinem Fallschaden bekommen!");
+		lore.add("§cJump on any entity!");
+		lore.add("§cThis entity will get a piece of your fall damage!");
 		lore.add("");
 		if (checkBuy(p)) {
-			lore.add("§2gekauft");
+			lore.add("§2owned");
 		} else {
-			lore.add("§cnicht gekauft");
+			lore.add("§cDISABLED");
 		}
 		return lore;
 	}

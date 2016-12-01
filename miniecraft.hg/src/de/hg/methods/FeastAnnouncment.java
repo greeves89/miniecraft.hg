@@ -44,25 +44,25 @@ public class FeastAnnouncment {
 				if (high != 0) {
 					high--;
 					if (high == 180) {
-						Bukkit.broadcastMessage("§cDas Feast beginnt in 3 Minuten!");
+						Bukkit.broadcastMessage("§cThe Feast start's in 3 minutes!");
 						Bukkit.broadcastMessage("§cFeast: X: " + Feast.loc.getBlockX() + " Y: " + Feast.loc.getBlockY() + " Z: " + Feast.loc.getBlockZ());
 					} else if (high == 120) {
-						Bukkit.broadcastMessage("§cDas Feast beginnt in 2 Minuten!");
+						Bukkit.broadcastMessage("§cThe Feast start's in 2 minutes!");
 						Bukkit.broadcastMessage("§cFeast: X: " + Feast.loc.getBlockX() + " Y: " + Feast.loc.getBlockY() + " Z: " + Feast.loc.getBlockZ());
 					} else if (high == 60) {
-						Bukkit.broadcastMessage("§cDas Feast beginnt in 1 Minute!");
+						Bukkit.broadcastMessage("§cThe Feast start's in 1 minute!");
 						Bukkit.broadcastMessage("§cFeast: X: " + Feast.loc.getBlockX() + " Y: " + Feast.loc.getBlockY() + " Z: " + Feast.loc.getBlockZ());
 					} else if (high == 30) {
-						Bukkit.broadcastMessage("§cDas Feast beginnt in 30 Sekunden!");
+						Bukkit.broadcastMessage("§cThe Feast start's in 30 seconds!");
 						Bukkit.broadcastMessage("§cFeast: X: " + Feast.loc.getBlockX() + " Y: " + Feast.loc.getBlockY() + " Z: " + Feast.loc.getBlockZ());
 					} else if (high == 10) {
-						Bukkit.broadcastMessage("§cDas Feast beginnt in 10 Sekunden!");
+						Bukkit.broadcastMessage("§cThe Feast start's in 10 seconds!");
 						Bukkit.broadcastMessage("§cFeast: X: " + Feast.loc.getBlockX() + " Y: " + Feast.loc.getBlockY() + " Z: " + Feast.loc.getBlockZ());
 					} else if (high < 10) {
-						Bukkit.broadcastMessage("§cDas Feast beginnt in " + high + " Sekunden!");
+						Bukkit.broadcastMessage("§cThe Feast start's in " + high + " seconds!");
 					}
 				} else {
-					Bukkit.broadcastMessage("§cDas Feast ist erschienen!");
+					Bukkit.broadcastMessage("§cThe Feast spawned!");
 					Bukkit.broadcastMessage("§cFeast: X: " + Feast.loc.getBlockX() + " Y: " + Feast.loc.getBlockY() + " Z: " + Feast.loc.getBlockZ());
 					Feast.startCreatingItems(10);
 					Game.isFeast = false;

@@ -17,7 +17,6 @@ public class PlayerLeave implements Listener {
 		Player p = e.getPlayer();
 		if (Game.inGame.contains(p)) {
 			Game.inGame.remove(p);
-			Bukkit.broadcastMessage(message.prefix + "§8Der Spieler §c" + p.getName() + "§8 hat das Spiel verlassen und ist ausgeschieden!");
 		}
 		if (Bukkit.getOnlinePlayers().size() == 1) {
 			EndGame.regenerate();

@@ -28,13 +28,13 @@ public class TeleporterKit {
 	
 	public static List<String> getDescription(Player p) {
 		List<String> lore = new ArrayList<>();
-		lore.add("§8Teleportiere dich woimmer du hin willst!");
-		lore.add("§8Du bekommst 5 Enderperlen!");
+		lore.add("§8Teleport to every Location you want!");
+		lore.add("§8You'll get 5 enderperl");
 		lore.add("");
 		if (checkBuy(p)) {
-			lore.add("§2gekauft");
+			lore.add("§2owned");
 		} else {
-			lore.add("§cnicht gekauft");
+			lore.add("§cDISABLED");
 		}
 		return lore;
 	}

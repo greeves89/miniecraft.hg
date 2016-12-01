@@ -56,14 +56,14 @@ public class main extends JavaPlugin {
 		startMySQL();
 		
 		
-		Bukkit.getConsoleSender().sendMessage("[HungerGames] aktiviert!");
+		Bukkit.getConsoleSender().sendMessage("[HungerGames] enabled!");
 		
 	}
 	public void onDisable() {
 		
 		mysql.close();
 		
-		Bukkit.getConsoleSender().sendMessage("[HungerGames] deaktiviert!");
+		Bukkit.getConsoleSender().sendMessage("[HungerGames] disabled!");
 		
 	}
 	private void registerCommands() {

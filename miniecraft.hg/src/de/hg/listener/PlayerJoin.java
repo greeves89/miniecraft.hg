@@ -30,8 +30,7 @@ public class PlayerJoin implements Listener {
 		if (Game.didPlayerCanJoin) {
 			
 			if (Bukkit.getOnlinePlayers().size() < Game.maxplayers) {
-				p.sendMessage(message.prefix + "du hast den Server betreten.");
-				e.setJoinMessage(message.prefix + "der Spieler " + p.getName() + " ist dem Spiel beigetreten.");
+				e.setJoinMessage(message.prefix + p.getName() + "§2 join't the server!");
 				p.setGameMode(GameMode.ADVENTURE);
 				Game.inGame.add(p);
 				p.getInventory().setItem(4, KitSelector.getKitSelector());
@@ -41,12 +40,12 @@ public class PlayerJoin implements Listener {
 			
 		} else if (Game.didProCanJoin) {
 			
-			if (p.hasPermission("server.premium")) {
+			if (p.hasPermission("hg.join.running")) {
 				p.setGameMode(GameMode.ADVENTURE);
 				Game.inGame.add(p);
-				p.sendMessage(message.prefix + "du hast den Server betreten!");
+				p.sendMessage(message.prefix + "you join't the server!");
 			} else {
-				p.kickPlayer("§cDas Spiel läuft bereits! Kaufe §6Premium §cum trotzdem beitreten zu können!");
+				p.kickPlayer("§cThe game is already running!");
 			}
 			
 		} else {

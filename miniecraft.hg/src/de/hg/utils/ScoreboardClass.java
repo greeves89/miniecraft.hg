@@ -15,6 +15,7 @@ import de.hg.mysql.statsMySQL;
 public class ScoreboardClass implements Listener {
 
 	int sched;
+	public static String website;
 	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
@@ -33,11 +34,11 @@ public class ScoreboardClass implements Listener {
 		int kills = statsMySQL.getKills(p.getUniqueId());
 		int deaths = statsMySQL.getDeaths(p.getUniqueId());
 		
-		Score five = obj.getScore(Bukkit.getOfflinePlayer("§6Spieler: " + p.getName()));
+		Score five = obj.getScore(Bukkit.getOfflinePlayer("§6Player: " + p.getName()));
 		Score four = obj.getScore(Bukkit.getOfflinePlayer("§cKills: " + kills));
 		Score three = obj.getScore(Bukkit.getOfflinePlayer("§cDeaths: " + deaths));
-		Score two = obj.getScore(Bukkit.getOfflinePlayer("§eWebseite:"));
-		Score one = obj.getScore(Bukkit.getOfflinePlayer("§eminiecraft.de"));
+		Score two = obj.getScore(Bukkit.getOfflinePlayer("§eWebsite/TS:"));
+		Score one = obj.getScore(Bukkit.getOfflinePlayer("§e" + website));
 		
 		five.setScore(5);
 		four.setScore(4);

@@ -27,8 +27,8 @@ public class Farmer {
 
  	public static List<String> getDescription(Player p) {
 		List<String> lore = new ArrayList<>();
-		lore.add("§8Sorge für eine sichere Lebensmittelversorgung!");
-		lore.add("");
+		lore.add("§8You will have enough of food for the whole game :D!");
+		lore.add("§eYou start with seeds and bones!");
 		lore.add("");
 		if (checkBuy(p)) {
 			lore.add("§2gekauft");

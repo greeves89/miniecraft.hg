@@ -38,13 +38,13 @@ public class Switcher implements Listener {
 
  	public static List<String> getDescription(Player p) {
 		List<String> lore = new ArrayList<>();
-		lore.add("§cDu bekommst 8 Schneebälle!");
-		lore.add("§eWerfe diese auf deine Gegener um eure Positionen zu tauschen.");
+		lore.add("§cYou'll get 8 snowballs");
+		lore.add("§eIf you hit your enemy, you will change the location with him!");
 		lore.add("");
 		if (checkBuy(p)) {
-			lore.add("§2gekauft");
+			lore.add("§2owned");
 		} else {
-			lore.add("§cnicht gekauft");
+			lore.add("§cDISABLED");
 		}
 		return lore;
 	}

@@ -40,21 +40,22 @@ public class Pyro {
 		return lore;
 	}
 	public static ItemStack getKitItem(Player p) {
-		ItemStack bow = new ItemStack(Material.BOW);
-		ItemMeta meta = bow.getItemMeta();
+		ItemStack lava = new ItemStack(Material.LAVA_BUCKET);
+		ItemMeta meta = lava.getItemMeta();
 		meta.setDisplayName(name);
 		meta.setLore(getDescription(p));
-		bow.setItemMeta(meta);
-		return bow;
+		lava.setItemMeta(meta);
+		return lava;
 	}
 	public static void setKit(Player p) {
-		ItemStack bow = new ItemStack(Material.BOW);
-		bow.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 1);
-		bow.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 1);
+		ItemStack lava = new ItemStack(Material.LAVA_BUCKET);
 		
-		ItemStack arrow = new ItemStack(Material.ARROW);
+		ItemStack fas = new ItemStack(Material.FLINT_AND_STEEL, 2);
 		
-		p.getInventory().addItem(bow);
-		p.getInventory().addItem(arrow);
+		ItemStack water = new ItemStack(Material.WATER_BUCKET);
+		
+		p.getInventory().addItem(water);
+		p.getInventory().addItem(lava);
+		p.getInventory().addItem(fas);
 	}
 }

@@ -9,15 +9,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class Miner {
+public class Lumberjack {
 	
-	private static String name = "§e§lMiner";
-
+	private static String name = "§e§lLumberjack";
+	
 	public static boolean isEnabled;
 	
 	public static boolean checkBuy(Player p) {
 		if (isEnabled) {
-			if (p.hasPermission("hg.kit.miner")) {
+			if (p.hasPermission("hg.kit.lumberjack")) {
 				return true;
 			} else {
 				return false;
@@ -27,9 +27,9 @@ public class Miner {
 		}
 	}
 	
- 	public static List<String> getDescription(Player p) {
+	public static List<String> getDescription(Player p) {
 		List<String> lore = new ArrayList<>();
-		lore.add("§eYou will get a OP pickaxe and some torches!");
+		lore.add("§eCut trees faster than every other!");
 		lore.add("");
 		lore.add("");
 		if (checkBuy(p)) {
@@ -40,24 +40,18 @@ public class Miner {
 		return lore;
 	}
 	public static ItemStack getKitItem(Player p) {
-		ItemStack pickaxe = new ItemStack(Material.DIAMOND_PICKAXE);
-		ItemMeta meta = pickaxe.getItemMeta();
+		ItemStack pick = new ItemStack(Material.WOOD_AXE);
+		ItemMeta meta = pick.getItemMeta();
 		meta.setDisplayName(name);
 		meta.setLore(getDescription(p));
-		pickaxe.setItemMeta(meta);
-		return pickaxe;
+		pick.setItemMeta(meta);
+		return pick;
 	}
 	public static void setKit(Player p) {
-		ItemStack pickaxe = new ItemStack(Material.DIAMOND_PICKAXE);
+		ItemStack axe = new ItemStack(Material.WOOD_AXE);
+		axe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 10);
+		axe.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
 		
-		pickaxe.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 2);
-		pickaxe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 2);
-		
-		ItemStack torch = new ItemStack(Material.TORCH, 64);
-		ItemStack cookies = new ItemStack(Material.COOKIE, 16);
-		
-		p.getInventory().addItem(pickaxe);
-		p.getInventory().addItem(torch);
-		p.getInventory().addItem(cookies);
+		p.getInventory().addItem(axe);
 	}
 }
