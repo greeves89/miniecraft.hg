@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import de.hg.kits.KitSelector;
+import de.hg.main.main;
 import de.hg.methods.Game;
 import de.hg.methods.Gamer;
 import de.hg.utils.message;
@@ -18,7 +19,7 @@ public class PlayerJoin implements Listener {
 
 	@EventHandler
 	public void onJoin (PlayerJoinEvent e) {
-		Player p = e.getPlayer();
+		final Player p = e.getPlayer();
 		Gamer.clear(p);
 		
 		p.setHealth(20);
@@ -26,6 +27,7 @@ public class PlayerJoin implements Listener {
 		
 		World spawn = Bukkit.getWorld(WorldGeneration.worldname);
 		p.teleport(spawn.getSpawnLocation()); 
+		System.out.println(spawn.getSpawnLocation().getY());
 		
 		if (Game.didPlayerCanJoin) {
 			
@@ -49,7 +51,13 @@ public class PlayerJoin implements Listener {
 			}
 			
 		} else {
-			p.kickPlayer("§6Game is already running!");
+			Bukkit.getScheduler().runTaskAsynchronously(main.getInstance(), new Runnable() {
+				
+				@Override
+				public void run() {
+					p.kickPlayer("§6Game is already running!");
+				}
+			});
 		}
 	}
 }

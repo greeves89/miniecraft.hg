@@ -14,6 +14,7 @@ public class Archer {
 	private static String name = "§e§lArcher";
 	
 	public static boolean isEnabled;
+	public static ArrayList<Player> onKit;
 	
 	public static boolean checkBuy(Player p) {
 		if (isEnabled) {
@@ -27,34 +28,28 @@ public class Archer {
 		}
 	}
 	
-	public static List<String> getDescription(Player p) {
+	public static List<String> getDescription() {
 		List<String> lore = new ArrayList<>();
 		lore.add("§8Shoot your enemies down!");
-		lore.add("");
-		lore.add("");
-		if (checkBuy(p)) {
-			lore.add("§2owned");
-		} else {
-			lore.add("§cDISABLED");
-		}
 		return lore;
 	}
-	public static ItemStack getKitItem(Player p) {
+	public static ItemStack getKitItem() {
 		ItemStack bow = new ItemStack(Material.BOW);
 		ItemMeta meta = bow.getItemMeta();
 		meta.setDisplayName(name);
-		meta.setLore(getDescription(p));
+		meta.setLore(getDescription());
 		bow.setItemMeta(meta);
 		return bow;
 	}
-	public static void setKit(Player p) {
+	public static ItemStack[] getKitItems() {
+		ItemStack[] items = new ItemStack[1];
 		ItemStack bow = new ItemStack(Material.BOW);
-		bow.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 1);
+		bow.addUnsafeEnchantment(Enchantment.ARROW_KNOCKBACK, 1);
 		bow.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 1);
+		ItemStack arrow = new ItemStack(Material.ARROW, 20);
 		
-		ItemStack arrow = new ItemStack(Material.ARROW);
-		
-		p.getInventory().addItem(bow);
-		p.getInventory().addItem(arrow);
+		items[0] = bow;
+		items[1] = arrow;
+		return items;
 	}
 }

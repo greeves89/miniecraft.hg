@@ -43,16 +43,12 @@ public class main extends JavaPlugin {
 		
 		FileConfigManagment.loadConfigs();
 		
-		Feast.loc = Feast.getLocation();
-		
-		if (WorldGeneration.didWorldExist()) {
-			WorldGeneration.setWorldBoarder();
-		} else {
-			WorldGeneration.createWorld();
-		}
+		WorldGeneration.createWorld();
+
+		WorldGeneration.setWorldBoarder();
 		
 		startup.startGame(Game.minplayers);
-		
+		Feast.loc = Feast.getLocation();
 		startMySQL();
 		
 		
@@ -70,7 +66,7 @@ public class main extends JavaPlugin {
 
 		this.getCommand("start").setExecutor(new startCMD());
 		this.getCommand("ping").setExecutor(new pingCMD());
-		this.getCommand("stop").setExecutor(new stopCMD());
+		this.getCommand("hgstop").setExecutor(new stopCMD());
 	}
 	private void registerEvents() {
 		PluginManager pm = Bukkit.getServer().getPluginManager();

@@ -58,7 +58,7 @@ public class Stomper implements Listener {
 	public void onStomp(EntityDamageEvent e) {
 		if (e.getEntity() instanceof Player && Game.isRunning && Game.inInvenciblity == false) {
 			Player p = (Player) e.getEntity();
-			if (KitSelector.kitHash.containsKey(p));
+			if (KitSelector.kitHash.containsKey(p) && e.getCause() != null);
 				if (KitSelector.kitHash.get(p).equals(kits.STOMPER) && e.getCause().equals(DamageCause.FALL)) {
 					for (Entity ent : p.getNearbyEntities(3, 3, 3)) {
 						if (ent instanceof LivingEntity) {

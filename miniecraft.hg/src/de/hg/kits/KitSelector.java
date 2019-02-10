@@ -1,8 +1,5 @@
 package de.hg.kits;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -16,20 +13,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import de.hg.kits.Kits.kits;
 import de.hg.methods.Game;
-import de.hg.utils.message;
-
 public class KitSelector implements Listener {
-
-	public static ArrayList<Player> hasKitChoosen = new ArrayList<>();
 	
-	public static HashMap<Player, Kits.kits> kitHash = new HashMap<>();
-	
-	private static Inventory selector = Bukkit.createInventory(null, 45, "KitSelector");
-	//
-	
-	//
 	public static ItemStack getKitSelector() {
 		ItemStack chest = new ItemStack(Material.CHEST);
 		ItemMeta meta = chest.getItemMeta();
@@ -44,7 +30,7 @@ public class KitSelector implements Listener {
 				if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
 					if (Game.inStatup) {
 						p.playSound(p.getLocation(), Sound.CHEST_OPEN, 1, 10);
-						openKitSelector(p);
+						p.openInventory(getKitSelectorInventory(p));
 					}
 				}
 			}
@@ -56,163 +42,25 @@ public class KitSelector implements Listener {
 				if (e.getWhoClicked() instanceof Player) {
 					Player p = (Player) e.getWhoClicked();
 					if (e.getClickedInventory().getType() == selector.getType()) {
-						ItemStack current = e.getCurrentItem();
-						if (!kitHash.containsKey(p)) {
-	 						if (current.equals(Archer.getKitItem(p))) {
-								kitHash.put(p,kits.ARCHER);
-							} else if (current.equals(Farmer.getKitItem(p))) {
-								kitHash.put(p, kits.FARMER);
-							} else if (current.equals(TeleporterKit.getKitItem(p))) {
-								if (TeleporterKit.checkBuy(p)) {
-									kitHash.put(p, kits.TELEPORTER);
-								} else {
-									p.sendMessage(message.kitDontOwn);
-								}
-							} else if (current.equals(Soupmaster.getKitItem(p))) {
-								if (Soupmaster.checkBuy(p)) {
-									kitHash.put(p, kits.SOUPMASTER);
-								} else {
-									p.sendMessage(message.kitDontOwn);
-								}
-							} else if (current.equals(Miner.getKitItem(p))) {
-								if (Miner.checkBuy(p)) {
-									kitHash.put(p, kits.MINER);
-								} else {
-									p.sendMessage(message.kitDontOwn);
-								}
-							} else if (current.equals(Stomper.getKitItem(p))) {
-								if (Stomper.checkBuy(p)) {
-									kitHash.put(p, kits.STOMPER);
-								} else {
-									p.sendMessage(message.kitDontOwn);
-								}
-							} else if (current.equals(Fisherman.getKitItem(p))) {
-								if (Fisherman.checkBuy(p)) {
-									kitHash.put(p, kits.FISHERMAN);
-								} else {
-									p.sendMessage(message.kitDontOwn);
-								}
-							} else if (current.equals(Mage.getKitItem(p))) {
-								if (Mage.checkBuy(p)) {
-									kitHash.put(p, kits.MAGIER);
-								} else {
-									p.sendMessage(message.kitDontOwn);
-								}
-							} else if (current.equals(Switcher.getKitItem(p))) {
-								if (Switcher.checkBuy(p)) {
-									kitHash.put(p, kits.SWITCHER);
-								} else {
-									p.sendMessage(message.kitDontOwn);
-								}
-							} else if (current.equals(Kangaroo.getKitItem(p))) {
-								if (Kangaroo.checkBuy(p)) {
-									kitHash.put(p, kits.KANGA);
-								} else {
-									p.sendMessage(message.kitDontOwn);
-								}
-							} else if (current.equals(Grandpa.getKitItem(p))) {
-								if (Grandpa.checkBuy(p)) {
-									kitHash.put(p, kits.GRANDPA);
-								} else {
-									p.sendMessage(message.kitDontOwn);
-								}
-							} else if (current.equals(Scout.getKitItem(p))) {
-								if (Scout.checkBuy(p)) {
-									kitHash.put(p, kits.SCOUT);
-								} else {
-									p.sendMessage(message.kitDontOwn);
-								}
-							} else if (current.equals(Pyro.getKitItem(p))) {
-								if (Pyro.checkBuy(p)) {
-									kitHash.put(p, kits.PYRO);
-								} else {
-									p.sendMessage(message.kitDontOwn);
-								}
-							} else if (current.equals(Lumberjack.getKitItem(p))) {
-								if (Lumberjack.checkBuy(p)) {
-									kitHash.put(p, kits.LUMBERJACK);
-								} else {
-									p.sendMessage(message.kitDontOwn);
-								}
-							}
-	 						p.sendMessage(message.prefix + "You choosed a kit!");
-						} else {
-							kitHash.remove(p);
-							p.sendMessage("§cChoose your kit again!");
-						}
-						p.playSound(p.getLocation(), Sound.CHEST_CLOSE, 1, 10);
-						p.getOpenInventory().close();
-						e.setCancelled(true);
+						
 					}
 				}
 			}
 		}
 	}
-	public static void openKitSelector(Player p) {
+	public static Inventory getKitSelectorInventory(Player p) {
+		Inventory selectorInv = Bukkit.createInventory(null, 36, "Kit Selector");
+		
 		ItemStack glass = new ItemStack(Material.THIN_GLASS);
-		ItemMeta glassmeta = glass.getItemMeta();
-		glassmeta.setDisplayName("§cKitSelector");
-		glass.setItemMeta(glassmeta);
-		
-		for (int i = 0; i < 9; i++) {
-			selector.setItem(i, glass);
+		for (int i = 0; i < 8; i++) {
+			selectorInv.setItem(0, glass);
 		}
-		
-		selector.setItem(9, Archer.getKitItem(p));
-		selector.setItem(10, Farmer.getKitItem(p));
-		selector.setItem(11, TeleporterKit.getKitItem(p));
-		selector.setItem(12, Soupmaster.getKitItem(p));
-		selector.setItem(13, Miner.getKitItem(p));
-		selector.setItem(14, Stomper.getKitItem(p));
-		selector.setItem(15, Fisherman.getKitItem(p));
-		selector.setItem(16, Mage.getKitItem(p));
-		selector.setItem(17, Switcher.getKitItem(p));
-		selector.setItem(18, Kangaroo.getKitItem(p));
-		selector.setItem(19, Grandpa.getKitItem(p));
-		selector.setItem(20, Scout.getKitItem(p));
-		selector.setItem(21, Pyro.getKitItem(p));
-		selector.setItem(22, Lumberjack.getKitItem(p));
-		
-		for (int i = 36; i < 45; i++) {
-			selector.setItem(i, glass);
+		for (Kit k : Kits.kits) {
+			selectorInv.addItem(k.getKitItem());
 		}
-		p.openInventory(selector);
+		return selectorInv;
 	}
 	public static void setKit() {
-		for (Player all : Bukkit.getOnlinePlayers()) {
-			if (kitHash.containsKey(all)) {
-				if (kitHash.get(all) == kits.ARCHER) {
-					Archer.setKit(all);
-				} else if (kitHash.get(all) == kits.FARMER) {
-					Farmer.setKit(all);
-				} else if (kitHash.get(all) == kits.TELEPORTER) {
-					TeleporterKit.setKit(all);
-				} else if (kitHash.get(all) == kits.SOUPMASTER) {
-					Soupmaster.setKit(all);
-				} else if (kitHash.get(all) == kits.MINER) {
-					Miner.setKit(all);
-				} else if (kitHash.get(all) == kits.FISHERMAN) {
-					Fisherman.setKit(all);
-				} else if (kitHash.get(all) == kits.MAGIER) {
-					Mage.setKit(all);
-				} else if (kitHash.get(all) == kits.SWITCHER) {
-					Switcher.setKit(all);
-				} else if (kitHash.get(all) == kits.KANGA) {
-					Kangaroo.setKit(all);
-				} else if (kitHash.get(all) == kits.GRANDPA) {
-					Grandpa.setKit(all);
-				} else if (kitHash.get(all) == kits.SCOUT) {
-					Scout.setKit(all);
-				} else if (kitHash.get(all) == kits.PYRO) {
-					Pyro.setKit(all);
-				} else if (kitHash.get(all) == kits.LUMBERJACK) {
-					Lumberjack.setKit(all);
-				}
-			} else {
-				ItemStack sword = new ItemStack(Material.WOOD_SWORD);
-				sword.setDurability((short) 50);
-				all.getInventory().addItem(sword);
-			}
-		}
+		
 	}
 }

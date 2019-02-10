@@ -7,5 +7,5 @@ commands:
           description: You can start the game directly
      ping:
           description: Check your ping to the server
-     stop:
+     hgstop:
           description: Stop the server and kick all players!

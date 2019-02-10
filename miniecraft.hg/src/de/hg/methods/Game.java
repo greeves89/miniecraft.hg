@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import de.hg.kits.KitSelector;
@@ -46,5 +47,8 @@ public class Game {
 		}
 		KitSelector.setKit();
 	}
-	
+	public static Location getSpawnLocation() {
+		Location loc = new Location(Bukkit.getWorld(WorldGeneration.worldname), 0, 120, 0);
+		return loc;
+	}
 }
